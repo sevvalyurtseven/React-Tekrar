@@ -2,11 +2,16 @@ import { useState } from "react";
 import "./Counter.css";
 
 const Counter = () => {
-  //virtual DOM'un counter degerinin degistigini anlayabilmesi icin useState hooku kullandik
   const [counter, setCounter] = useState(0);
+  const [showPanel, setShowPanel] = useState(true);
+
+  console.log("component:", counter);
 
   function arttir() {
     setCounter(counter + 1);
+    if (counter >= 10) {
+      setShowPanel(false);
+    }
   }
 
   function azalt() {
@@ -16,7 +21,7 @@ const Counter = () => {
     <>
       <h2>Counter: {counter}</h2>
       <div>
-        <button onClick={arttir}>+1</button>
+        {showPanel && <button onClick={arttir}>+1</button>}
         <button onClick={azalt}>-1</button>
       </div>
     </>
