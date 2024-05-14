@@ -10,11 +10,13 @@ React'ın temel mantığı, kullanıcı arayüzünü bağımsız bileşenler hal
 
 React bileşeni, fonksiyonel veya sınıf bazlı olabilir. İşte basit bir fonksiyonel bileşen örneği:
 
-import React from 'react';
+```javascript
+import React from "react";
 
 function Welcome(props) {
-return <h1>Hello, {props.name}</h1>;
+  return <h1>Hello, {props.name}</h1>;
 }
+```
 
 Bu bileşen, props adında bir parametre alır ve bu parametre üzerinden gelen name değerini kullanarak bir başlık (h1) elementi render eder.
 
@@ -22,21 +24,20 @@ Bu bileşen, props adında bir parametre alır ve bu parametre üzerinden gelen 
 
 React'te, bileşenin durumunu (state) yönetmek için useState hook'u kullanılır. İşte bir örnek
 
-import React, { useState } from 'react';
+```javascript
+import React, { useState } from "react";
 
 function Counter() {
-const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-return (
-
-<div>
-<p>You clicked {count} times</p>
-<button onClick={() => setCount(count + 1)}>
-Increment
-</button>
-</div>
-);
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
 }
+```
 
 Bu örnekte, count adında bir state değişkeni tanımlanmış ve başlangıç değeri olarak 0 atanmıştır. setCount ise bu state'i güncellemek için kullanılır.
 
