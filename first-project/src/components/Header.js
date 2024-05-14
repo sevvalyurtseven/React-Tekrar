@@ -1,9 +1,10 @@
 import "./Header.css";
 
 function Header() {
+  const projectName = "My First Project";
   return (
     <header>
-      <h1>Welcome to My First Project</h1>
+      <h1>Welcome to {projectName}</h1>
     </header>
   );
 }
