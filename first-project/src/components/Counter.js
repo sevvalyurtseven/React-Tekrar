@@ -3,15 +3,11 @@ import "./Counter.css";
 
 const Counter = () => {
   const [counter, setCounter] = useState(0);
-  const [showPanel, setShowPanel] = useState(true);
 
   console.log("component:", counter);
 
   function arttir() {
     setCounter(counter + 1);
-    if (counter >= 10) {
-      setShowPanel(false);
-    }
   }
 
   function azalt() {
@@ -21,8 +17,12 @@ const Counter = () => {
     <>
       <h2>Counter: {counter}</h2>
       <div>
-        {showPanel && <button onClick={arttir}>+1</button>}
-        <button onClick={azalt}>-1</button>
+        <button disabled={counter >= 10 ? true : false} onClick={arttir}>
+          +1
+        </button>
+        <button disabled={counter <= 0 ? true : false} onClick={azalt}>
+          -1
+        </button>
       </div>
     </>
   );
