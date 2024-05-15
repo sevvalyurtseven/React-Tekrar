@@ -59,10 +59,47 @@ React, modüler yapı ve verimli güncellemeler sayesinde günümüz web gelişt
 
 ## Ek Bilgiler
 
-1-) setter'lar asenkron calısır.
+1: setter'lar asenkron calısır.
 
-2-) state degistigi zaman component Virtual DOM'da komple yeniden render olur fakat ekrana sadece degisikliği yansıtır.
+2: state degistigi zaman component Virtual DOM'da komple yeniden render olur fakat ekrana sadece degisikliği yansıtır.
 
-3-) useState hooku, bir bileşen içinde değişkenlerin durumunu tutmanızı sağlar ve bu durum değiştiğinde bileşenin otomatik olarak yeniden render edilmesine olanak tanır.
+3: useState hooku, bir bileşen içinde değişkenlerin durumunu tutmanızı sağlar ve bu durum değiştiğinde bileşenin otomatik olarak yeniden render edilmesine olanak tanır.
 
-## ÖNEMLİ: herşey için state yaratmaya gerek yok bazı durumlar tek bir state'den yönetilebilir!
+4: herşey için state yaratmaya gerek yok bazı durumlar tek bir state'den yönetilebilir!
+
+## Props in React Component
+
+React'ta props, bileşenlere veri aktarmanın bir yoludur. Bileşenler props'ları sadece okuyabilir.
+
+```javascript
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  return <Welcome name="Alice" />;
+}
+```
+
+## Using Nested Components
+
+React'ta bileşenler başka bileşenler içerebilir. Bu yaklaşım kodun modülerliğini ve tekrar kullanılabilirliğini artırır.
+
+```javascript
+function User(props) {
+  return <h1>Welcome, {props.name}</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <User name="Alice" />
+      <User name="Bob" />
+    </div>
+  );
+}
+```
+
+## Dynamic Props
+
+Dinamik props, bileşenlere dinamik olarak değişebilen veriler sağlama yöntemidir.
