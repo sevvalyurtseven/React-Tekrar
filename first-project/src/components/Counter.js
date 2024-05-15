@@ -3,7 +3,8 @@ import "./Counter.css";
 import CounterDisplay from "./CounterDisplay";
 import CounterController from "./CounterController";
 
-const Counter = () => {
+const Counter = (props) => {
+  const { name } = props;
   const [counter, setCounter] = useState(0);
 
   console.log("component:", counter);
@@ -17,7 +18,7 @@ const Counter = () => {
   }
   return (
     <>
-      <CounterDisplay counter={counter} />
+      <CounterDisplay counter={counter} name={name} />
       <CounterController counter={counter} arttir={arttir} azalt={azalt} />
     </>
   );

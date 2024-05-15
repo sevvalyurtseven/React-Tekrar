@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Header user={user} projectName="My First Project" />
-      <Main />
+      <Main name={user.name} />
     </>
   );
 }
