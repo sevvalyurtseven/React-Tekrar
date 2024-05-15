@@ -1,6 +1,7 @@
 import "./App.css";
 import Counter from "./components/Counter";
 import Header from "./components/Header";
+import Main from "./components/Main";
 
 function App() {
   const user = {
@@ -11,8 +12,8 @@ function App() {
 
   return (
     <>
-      <Header user={user} />
-      <Counter />
+      <Header user={user} projectName="My First Project" />
+      <Main />
     </>
   );
 }

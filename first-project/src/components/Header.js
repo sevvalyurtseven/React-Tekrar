@@ -7,7 +7,7 @@ function Header(props) {
   return (
     <header>
       <h1>
-        Welcome {getFullName(props.user)} to {projectName}
+        Welcome {getFullName(props.user)} to {props.projectName}
       </h1>
     </header>
   );
