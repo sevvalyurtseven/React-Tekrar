@@ -15,6 +15,8 @@ const Counter = (props) => {
     setCounter(counter - 1);
   }
 
+  //degişikliğini track ettiğimiz prop veya state güncellendiğinde çalışır!
+
   useEffect(() => {
     console.log("Counter updated to ", counter);
   }, [counter]);
@@ -22,6 +24,19 @@ const Counter = (props) => {
   useEffect(() => {
     console.log("Name updated to ", name);
   }, [name]);
+
+  //component yüklendiğinde bir kere çalısır
+
+  useEffect(() => {
+    console.log("[componentDidMount()] event triggered");
+  }, []);
+
+  //component update oldugunda çalısır
+
+  useEffect(() => {
+    console.log("[componentDidUpdate()] event triggered");
+  });
+
   return (
     <>
       <CounterDisplay counter={counter} name={name} />
