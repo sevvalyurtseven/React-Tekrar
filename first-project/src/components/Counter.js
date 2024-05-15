@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Counter.css";
+import CounterDisplay from "./CounterDisplay";
 
 const Counter = () => {
   const [counter, setCounter] = useState(0);
@@ -15,7 +16,7 @@ const Counter = () => {
   }
   return (
     <>
-      <h2>Counter: {counter}</h2>
+      <CounterDisplay counter={counter} />
       <div>
         <button disabled={counter >= 10 ? true : false} onClick={arttir}>
           +1
