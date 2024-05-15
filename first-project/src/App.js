@@ -4,7 +4,8 @@ import Header from "./layout/Header";
 import Main from "./layout/Main";
 import Users from "./layout/Users";
 import { user } from "./api/getUser";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 function App() {
   const [loggedUser, setLoggedUser] = useState(user);
   const [users, setUsers] = useState([]);
@@ -16,6 +17,20 @@ function App() {
     };
     setLoggedUser(newUser);
   }
+
+  useEffect(() => {
+    axios
+      .get("https://reqres.in/api/users")
+      .then((response) => {
+        setUsers(response.data.data);
+      })
+      .catch((error) => {
+        console.error(error.response.message);
+      })
+      .finally(() => {
+        console.log("İstek sonlandırıldı");
+      });
+  }, []); //didMount
   return (
     <>
       <Header
