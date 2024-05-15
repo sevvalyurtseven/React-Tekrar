@@ -1,4 +1,4 @@
-import UserList from "../components/user/userList";
+import UserList from "../components/user/UserList";
 
 function Users(props) {
   const { users } = props;
