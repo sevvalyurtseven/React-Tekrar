@@ -59,13 +59,13 @@ React, modüler yapı ve verimli güncellemeler sayesinde günümüz web gelişt
 
 ## Ek Bilgiler
 
-1: setter'lar asenkron calısır.
+**1-** setter'lar asenkron calısır.
 
-2: state degistigi zaman component Virtual DOM'da komple yeniden render olur fakat ekrana sadece degisikliği yansıtır.
+**2-** state degistigi zaman component Virtual DOM'da komple yeniden render olur fakat ekrana sadece degisikliği yansıtır.
 
-3: useState hooku, bir bileşen içinde değişkenlerin durumunu tutmanızı sağlar ve bu durum değiştiğinde bileşenin otomatik olarak yeniden render edilmesine olanak tanır.
+**3-** useState hooku, bir bileşen içinde değişkenlerin durumunu tutmanızı sağlar ve bu durum değiştiğinde bileşenin otomatik olarak yeniden render edilmesine olanak tanır.
 
-4: herşey için state yaratmaya gerek yok bazı durumlar tek bir state'den yönetilebilir!
+**4-** herşey için state yaratmaya gerek yok bazı durumlar tek bir state'den yönetilebilir!
 
 ## Props in React Component
 
@@ -103,3 +103,55 @@ function App() {
 ## Dynamic Props
 
 Dinamik props, bileşenlere dinamik olarak değişebilen veriler sağlama yöntemidir.
+
+## useEffect Hook
+
+useEffect Hook, fonksiyonel bileşenlerde yan etkileri yönetmek için kullanılır. Bu, data fetching, subscriptions veya manuel DOM manipülasyonları gibi işlemleri gerçekleştirmek için idealdir. useEffect içinde tanımlanan işlevler, bileşen render edildikten sonra çalışır. Ayrıca, bağımlılıklar dizisi aracılığıyla, belirli props veya state değişikliklerine bağlı olarak ne zaman tetikleneceğini kontrol edebilirsiniz.
+
+```javascript
+useEffect(() => {
+  // Code here will run after component mounts and after every update if dependencies change
+}, [dependencies]); // Dependencies array
+```
+
+## React Component Lifecycle Events
+
+React sınıf bileşenlerinde, bileşenin yaşam döngüsünü yönetmek için özel metotlar kullanılır. Bu metotlar şunlardır:
+
+**componentDidMount:** Bileşen DOM'a eklendikten sonra çalışır.
+**componentDidUpdate:** Bileşen güncellendikten sonra çalışır.
+**componentWillUnmount:** Bileşen DOM'dan kaldırılmadan önce çalışır.
+
+Bu metotlar, bileşenlerin yaşam döngüsü boyunca gerekli işlemleri yapmanıza olanak tanır.
+
+## Fetch Data on App Load
+
+Bir uygulama yüklendiğinde veri çekmek için genellikle **useEffect Hook** kullanılır. Bu, API'dan veri çekmek gibi asenkron işlemleri başlatmak için ideal bir yerdir.
+
+```javascript
+useEffect(() => {
+  const fetchData = async () => {
+    const response = await fetch("https://api.example.com/data");
+    const data = await response.json();
+    // Set state with fetched data
+  };
+
+  fetchData();
+}, []); // Empty dependencies array ensures this runs only on mount
+```
+
+## Filter Data on Input Change
+
+Kullanıcı girdisine bağlı olarak veriyi filtrelemek, genellikle bir input elementinden alınan veriyi kullanarak state'de saklanan verileri filtrelemek anlamına gelir. **useState** ve **useEffect** ile birleştirilerek, kullanıcı girdisi her değiştiğinde filtreleme işlemi gerçekleştirilir.
+
+```javascript
+const [searchTerm, setSearchTerm] = useState("");
+const [filteredData, setFilteredData] = useState([]);
+
+useEffect(() => {
+  const results = originalData.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  setFilteredData(results);
+}, [searchTerm]); // Dependency on searchTerm
+```
