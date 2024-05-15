@@ -1,17 +1,13 @@
 import "./Header.css";
 import { getFullName } from "../utils/utils";
 
-export const user = {
-  name: "Sevval",
-  surname: "Yurtseven",
-  age: 24,
-};
-function Header() {
+function Header(props) {
   const projectName = "My First Project";
+  //console.log("header:", props.user);
   return (
     <header>
       <h1>
-        Welcome {getFullName(user)} to {projectName}
+        Welcome {getFullName(props.user)} to {projectName}
       </h1>
     </header>
   );
