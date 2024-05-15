@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://reqres.in/api/users")
+      .get("https://reqres.in/api/users?per_page=12")
       .then((response) => {
         setUsers(response.data.data);
       })
