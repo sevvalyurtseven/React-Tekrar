@@ -2,13 +2,14 @@ import "./Header.css";
 import { getFullName } from "../utils/utils";
 
 function Header(props) {
-  const projectName = "My First Project";
+  const { changeUser, user, projectName } = props;
   //console.log("header:", props.user);
   return (
     <header>
       <h1>
-        Welcome {getFullName(props.user)} to {props.projectName}
+        Welcome {getFullName(user)} to {projectName}
       </h1>
+      <button onClick={changeUser}>Change User</button>
     </header>
   );
 }
