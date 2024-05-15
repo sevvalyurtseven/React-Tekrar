@@ -1,3 +1,4 @@
+import "./UserList.css";
 import User from "./User";
 
 function UserList(props) {
