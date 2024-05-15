@@ -1,15 +1,9 @@
 import "./App.css";
 import Counter from "./components/Counter";
-import Header from "./components/Header";
-import Main from "./components/Main";
-
+import Header from "./layout/Header";
+import Main from "./layout/Main";
+import { user } from "./api/getUser";
 function App() {
-  const user = {
-    name: "Sevval",
-    surname: "Yurtseven",
-    age: 24,
-  };
-
   return (
     <>
       <Header user={user} projectName="My First Project" />
