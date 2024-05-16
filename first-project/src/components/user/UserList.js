@@ -3,12 +3,13 @@ import User from "./User";
 import { Link } from "react-router-dom";
 
 function UserList(props) {
-  const { users } = props;
+  const { users, type } = props;
+
   return (
     <div className="user-container">
       {users.map((user) => (
-        <Link to={`/user/${user.id}`}>
-          <User user={user} key={user.id} />
+        <Link to={`/user/${user.id}`} key={user.id} className="user-list">
+          <User user={user} type={type} />
         </Link>
       ))}
     </div>
