@@ -6,6 +6,7 @@ import Users from "./layout/Users";
 import { user } from "./api/getUser";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 function App() {
   const [loggedUser, setLoggedUser] = useState(user);
   const [users, setUsers] = useState([]);
@@ -38,8 +39,14 @@ function App() {
         changeUser={changeUser}
         projectName="My First Project"
       />
-      <Main name={loggedUser.name} />
-      <Users users={users} />
+      <Switch>
+        <Route path="/main">
+          <Main name={loggedUser.name} />
+        </Route>
+        <Route path="/users">
+          <Users users={users} />
+        </Route>
+      </Switch>
     </>
   );
 }
