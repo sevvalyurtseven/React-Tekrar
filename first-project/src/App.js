@@ -1,15 +1,12 @@
 import "./App.css";
-import Counter from "./components/Counter";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
-import Users from "./layout/Users";
 import { user } from "./api/getUser";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import SideBar from "./layout/SideBar";
+import Footer from "./layout/Footer";
 function App() {
   const [loggedUser, setLoggedUser] = useState(user);
-  const [users, setUsers] = useState([]);
 
   function changeUser() {
     const newUser = {
@@ -19,19 +16,6 @@ function App() {
     setLoggedUser(newUser);
   }
 
-  useEffect(() => {
-    axios
-      .get("https://reqres.in/api/users?per_page=12")
-      .then((response) => {
-        setUsers(response.data.data);
-      })
-      .catch((error) => {
-        console.error(error.response.message);
-      })
-      .finally(() => {
-        console.log("İstek sonlandırıldı");
-      });
-  }, []); //didMount
   return (
     <>
       <Header
@@ -39,14 +23,11 @@ function App() {
         changeUser={changeUser}
         projectName="My First Project"
       />
-      <Switch>
-        <Route path="/main">
-          <Main name={loggedUser.name} />
-        </Route>
-        <Route path="/users">
-          <Users users={users} />
-        </Route>
-      </Switch>
+      <div className="middle-area">
+        <SideBar />
+        <Main />
+      </div>
+      <Footer />
     </>
   );
 }
