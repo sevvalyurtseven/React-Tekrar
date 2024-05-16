@@ -5,6 +5,7 @@ function CounterController(props) {
   return (
     <div>
       <Button
+        className="me-4"
         color="success"
         disabled={counter >= 10 ? true : false}
         onClick={arttir}
