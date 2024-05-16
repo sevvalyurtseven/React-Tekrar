@@ -8,7 +8,7 @@ function UserList(props) {
   return (
     <div className="user-container">
       {users.map((user) => (
-        <Link to={`/user/${user.id}`} key={user.id} className="user-list">
+        <Link to={`/users/${user.id}`} key={user.id} className="user-list">
           <User user={user} type={type} />
         </Link>
       ))}

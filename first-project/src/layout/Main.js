@@ -12,10 +12,10 @@ function Main(props) {
         <Route path="/counter">
           <Counter name={name} />
         </Route>
-        <Route path="/users">
+        <Route exact path="/users">
           <Users users={users} />
         </Route>
-        <Route path="/user/:id">
+        <Route path="/users/:id">
           <User />
         </Route>
         <Route path="*">
