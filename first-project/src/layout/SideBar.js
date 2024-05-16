@@ -1,11 +1,21 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./SideBar.css";
+import { NavLink } from "react-router-dom";
 
 function SideBar(props) {
   return (
     <div className="side-container">
-      <Link to="/counter">Counter</Link>
-      <Link to="/users">Users</Link>
+      <NavLink
+        to="/counter"
+        className={(isActive) => (isActive ? "active" : null)}
+      >
+        Counter
+      </NavLink>
+      <NavLink
+        to="/users"
+        className={(isActive) => (isActive ? "active" : null)}
+      >
+        Users
+      </NavLink>
     </div>
   );
 }

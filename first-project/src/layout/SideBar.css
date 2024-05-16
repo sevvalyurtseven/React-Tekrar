@@ -18,3 +18,7 @@
   background-color: red;
   color: white;
 }
+
+.side-container .active {
+  background-color: aqua;
+}
