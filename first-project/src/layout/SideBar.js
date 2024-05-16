@@ -1,7 +1,9 @@
 import "./SideBar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
+import UserList from "../components/user/UserList";
 
 function SideBar(props) {
+  const { users } = props;
   return (
     <div className="side-container">
       <NavLink
@@ -16,6 +18,9 @@ function SideBar(props) {
       >
         Users
       </NavLink>
+      <Route path="*/users">
+        <UserList type="listMode" users={users} />
+      </Route>
     </div>
   );
 }
