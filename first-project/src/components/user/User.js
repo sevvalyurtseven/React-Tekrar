@@ -1,13 +1,18 @@
+import { Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
 import "./User.css";
 
 function User(props) {
   const { user } = props;
   return (
-    <div className="user-card">
-      <h2>{user.first_name}</h2>
-      <p>{user.email}</p>
+    <Card className="shadow-sm my-2" style={{ width: "18rem" }}>
       <img src={user.avatar} alt={user.first_name} />
-    </div>
+      <CardBody>
+        <CardTitle tag={"h5"}>{user.first_name}</CardTitle>
+        <CardSubtitle className="mb-2 text-muted" tag={"h6"}>
+          {user.email}
+        </CardSubtitle>
+      </CardBody>
+    </Card>
   );
 }
 export default User;

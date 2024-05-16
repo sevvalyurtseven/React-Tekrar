@@ -3,7 +3,7 @@ import { Button } from "reactstrap";
 function CounterController(props) {
   const { counter, arttir, azalt } = props;
   return (
-    <div>
+    <div className="my-4">
       <Button
         className="me-4"
         color="success"
