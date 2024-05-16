@@ -25,7 +25,7 @@ function App() {
       />
       <div className="middle-area">
         <SideBar />
-        <Main />
+        <Main name={loggedUser.name} />
       </div>
       <Footer />
     </>
