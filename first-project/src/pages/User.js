@@ -30,7 +30,7 @@ const User = () => {
       .finally(() => {
         console.log("İstek sonlandırıldı");
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
