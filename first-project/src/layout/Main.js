@@ -2,6 +2,7 @@ import { Route, Switch } from "react-router-dom";
 import Counter from "../components/Counter";
 import Users from "../pages/Users";
 import NotFound from "../pages/NotFound";
+import User from "../pages/User";
 
 function Main(props) {
   const { name } = props;
@@ -13,6 +14,9 @@ function Main(props) {
         </Route>
         <Route path="/users">
           <Users />
+        </Route>
+        <Route path="/user/:id">
+          <User />
         </Route>
         <Route path="*">
           <NotFound />
