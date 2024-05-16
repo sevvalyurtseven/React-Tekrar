@@ -22,3 +22,11 @@
 .side-container .active {
   background-color: aqua;
 }
+
+.side-container .user-list {
+  background-color: inherit;
+  padding: 2%;
+  text-align: left;
+  margin: 0.5rem;
+  color: white;
+}
