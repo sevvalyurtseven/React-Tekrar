@@ -1,7 +1,20 @@
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Counter from "../components/Counter";
+import Users from "../pages/Users";
 
 function Main(props) {
   const { name } = props;
-  return <Counter name={name} />;
+  return (
+    <div className="main-container">
+      <Switch>
+        <Route path="/main">
+          <Counter name={name} />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+      </Switch>
+    </div>
+  );
 }
 export default Main;
