@@ -1,6 +1,7 @@
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { Route, Switch } from "react-router-dom";
 import Counter from "../components/Counter";
 import Users from "../pages/Users";
+import NotFound from "../pages/NotFound";
 
 function Main(props) {
   const { name } = props;
@@ -12,6 +13,9 @@ function Main(props) {
         </Route>
         <Route path="/users">
           <Users />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </div>
