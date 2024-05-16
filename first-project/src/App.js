@@ -5,8 +5,24 @@ import { user } from "./api/getUser";
 import { useState, useEffect } from "react";
 import SideBar from "./layout/SideBar";
 import Footer from "./layout/Footer";
+import axios from "axios";
 function App() {
   const [loggedUser, setLoggedUser] = useState(user);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://reqres.in/api/users?per_page=12")
+      .then((response) => {
+        setUsers(response.data.data);
+      })
+      .catch((error) => {
+        console.error(error.response.message);
+      })
+      .finally(() => {
+        console.log("İstek sonlandırıldı");
+      });
+  }, []); //didMount
 
   function changeUser() {
     const newUser = {
@@ -24,8 +40,8 @@ function App() {
         projectName="My First Project"
       />
       <div className="middle-area">
-        <SideBar />
-        <Main name={loggedUser.name} />
+        <SideBar users={users} />
+        <Main name={loggedUser.name} users={users} />
       </div>
       <Footer />
     </>

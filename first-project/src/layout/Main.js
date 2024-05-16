@@ -5,7 +5,7 @@ import NotFound from "../pages/NotFound";
 import User from "../pages/User";
 
 function Main(props) {
-  const { name } = props;
+  const { name, users } = props;
   return (
     <div className="main-container">
       <Switch>
@@ -13,7 +13,7 @@ function Main(props) {
           <Counter name={name} />
         </Route>
         <Route path="/users">
-          <Users />
+          <Users users={users} />
         </Route>
         <Route path="/user/:id">
           <User />
