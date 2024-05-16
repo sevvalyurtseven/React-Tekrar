@@ -7,7 +7,7 @@ function Main(props) {
   return (
     <div className="main-container">
       <Switch>
-        <Route path="/main">
+        <Route path="/counter">
           <Counter name={name} />
         </Route>
         <Route path="/users">
