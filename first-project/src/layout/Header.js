@@ -1,15 +1,27 @@
-import "./Header.css";
 import { getFullName } from "../utils/utils";
+import styled from "styled-components";
 
 function Header(props) {
   const { changeUser, user, projectName } = props;
-  //console.log("header:", props.user);
+
+  const Title = styled.h1`
+    text-align: center;
+  `;
+  const Button = styled.button`
+    height: 80px;
+    width: 80px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: aqua;
+    cursor: pointer;
+  `;
+
   return (
     <header>
-      <h1>
+      <Title>
         Welcome {getFullName(user)} to {projectName}
-      </h1>
-      <button onClick={changeUser}>Change User</button>
+      </Title>
+      <Button onClick={changeUser}>Change User</Button>
     </header>
   );
 }
