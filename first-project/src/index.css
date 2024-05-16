@@ -16,11 +16,6 @@ code {
   display: flex;
 }
 
-.side-container {
-  width: 20%;
-  background-color: blue;
-}
-
 .main-container {
   width: 80%;
 }
