@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { Button, Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
 import axios from "axios";
 
-const User = () => {
+const UserPage = () => {
   const { id } = useParams();
 
   const [user, setUser] = useState({});
@@ -50,4 +50,4 @@ const User = () => {
     </>
   );
 };
-export default User;
+export default UserPage;

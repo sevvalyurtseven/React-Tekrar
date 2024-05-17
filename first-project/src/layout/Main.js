@@ -2,13 +2,17 @@ import { Route, Switch } from "react-router-dom";
 import Counter from "../components/Counter";
 import Users from "../pages/Users";
 import NotFound from "../pages/NotFound";
-import User from "../pages/User";
+import UserPage from "../pages/UserPage";
+import Login from "../pages/Login";
 
 function Main(props) {
   const { name, users } = props;
   return (
     <div className="main-container">
       <Switch>
+        <Route exact path="/">
+          <Login />
+        </Route>
         <Route path="/counter">
           <Counter name={name} />
         </Route>
@@ -16,7 +20,7 @@ function Main(props) {
           <Users users={users} />
         </Route>
         <Route path="/users/:id">
-          <User />
+          <UserPage />
         </Route>
         <Route path="*">
           <NotFound />
