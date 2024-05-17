@@ -35,6 +35,10 @@ function App() {
     setLoggedUser(user);
   }
 
+  function addNewUser(user) {
+    setUsers([...users, user]);
+  }
+
   return (
     <>
       <Header
@@ -44,7 +48,12 @@ function App() {
       />
       <div className="middle-area">
         <SideBar users={users} />
-        <Main name={loggedUser.name} changeUser={changeUser} users={users} />
+        <Main
+          name={loggedUser.name}
+          changeUser={changeUser}
+          users={users}
+          addNewUser={addNewUser}
+        />
       </div>
       <Footer />
       <ToastContainer />

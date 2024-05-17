@@ -7,7 +7,7 @@ import Login from "../pages/Login";
 import AddUser from "../pages/AddUser";
 
 function Main(props) {
-  const { name, users, changeUser } = props;
+  const { name, users, changeUser, addNewUser } = props;
 
   return (
     <div className="main-container">
@@ -25,7 +25,7 @@ function Main(props) {
           <UserPage />
         </Route>
         <Route exact path="/user/add">
-          <AddUser />
+          <AddUser addNewUser={addNewUser} />
         </Route>
         <Route path="*">
           <NotFound />
