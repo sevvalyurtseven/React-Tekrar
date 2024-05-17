@@ -7,7 +7,7 @@ const initialFormData = {
   email: "", //email
   avatar: "", //url
   first_name: "", //text
-  surname: "", //text
+  last_name: "", //text
   age: "", //number
   password: "", //password
   position: "", //radio
@@ -67,14 +67,14 @@ function AddUser(props) {
         </label>
       </div>
       <div>
-        <label htmlFor="surname">
+        <label htmlFor="last_name">
           Surname:
           <input
-            id="surname"
-            name="surname"
+            id="last_name"
+            name="last_name"
             type="text"
             placeholder="Soyadınızı giriniz"
-            value={formData.surname}
+            value={formData.last_name}
             onChange={handleChange}
           />
         </label>
