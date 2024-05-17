@@ -7,11 +7,12 @@ import Login from "../pages/Login";
 
 function Main(props) {
   const { name, users, changeUser } = props;
+
   return (
     <div className="main-container">
       <Switch>
         <Route exact path="/">
-          <Login changeUser={changeUser} />
+          {name === "" && <Login changeUser={changeUser} />}
         </Route>
         <Route path="/counter">
           <Counter name={name} />

@@ -15,7 +15,7 @@ const UserPage = () => {
   }
 
   function handleNavigation() {
-    history.push("/counter");
+    history.push("/");
   }
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const UserPage = () => {
       <Button className="me-4" onClick={handlePrev}>
         Geri
       </Button>
-      <Button onClick={handleNavigation}>Counter Page</Button>
+      <Button onClick={handleNavigation}>Anasayfa</Button>
       <Card className="shadow-sm my-2" style={{ width: "18rem" }}>
         <img src={user.avatar} alt={user.first_name} />
         <CardBody>

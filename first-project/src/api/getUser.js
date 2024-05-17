@@ -1,5 +1,5 @@
 export const user = {
-  name: "Sevval",
-  surname: "Yurtseven",
-  age: 24,
+  name: "",
+  surname: "",
+  age: null,
 };
