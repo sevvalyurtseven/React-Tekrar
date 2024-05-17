@@ -175,6 +175,20 @@ function AddUser(props) {
         />
         <label htmlFor="agreement">I accept the terms and conditions.</label>
       </div>
+      <div>
+        <label htmlFor="gender">
+          Gender:
+          <select onChange={handleChange} name="gender" id="gender">
+            <option value="">Please select a gender</option>
+            <option selected={formData.gender === "male"} value="male">
+              Male
+            </option>
+            <option selected={formData.gender === "female"} value="female">
+              Female
+            </option>
+          </select>
+        </label>
+      </div>
       <button type="submit">Giriş Yap</button>
     </form>
   );
