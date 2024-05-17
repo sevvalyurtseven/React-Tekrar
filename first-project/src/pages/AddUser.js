@@ -22,45 +22,55 @@ function AddUser(props) {
   //state olusturduk
   const [formData, setFormData] = useState(initialFormData);
 
+  //2. adım error state:
+  const [errors, setErrors] = useState({
+    email: "",
+    avatar: "",
+    first_name: "",
+    last_name: "",
+    age: "",
+    password: "",
+    position: "",
+    gender: "",
+    agreement: "",
+  });
+
   //1. adım form schema olustur:
 
   const formSchema = Yup.object().shape({
-    email: Yup
-    .string()
-    .email("Must be a valid email address.")
-    .required("Must include an email address."),
-    avatar: Yup
-    .string()
-    .url("Must include a valid URL.")
-    first_name: Yup
-    .string()
-    .min(3, "Must be at least 3 characters long.")
-    .required("Must include a name."),
-    last_name: Yup
-    .string()
-    .min(3, "Must be at least 3 characters long.")
-    .required("Must include a surname."),
-    password: Yup
-    .string()
-    .min(6, "Password must be at least 6 characters long.")
-    .matches(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/, "Password must contain uppercase, lowercase and number.")
-    .required("Must include a password."),
-    agreement: Yup
-    .boolean()
-    .oneOf([true], "You must accept the Terms and Conditions.")
-    age: Yup
-    .number()
-    .min(18, "Must be at least 18 years old.")
-    .required("Must include an age."),
-    position: Yup
-    .string()
-    .oneOf(["HR", "Sales", "Education"], "Must select one of the three positions.")
-    .required("Position is required."),
-    gender: Yup
-    .string()
-    .oneOf(["Male", "Female"], "Please select your gender.")
-    .required("Gender is required."),
-
+    email: Yup.string()
+      .email("Must be a valid email address.")
+      .required("Must include an email address."),
+    avatar: Yup.string().url("Must include a valid URL."),
+    first_name: Yup.string()
+      .min(3, "Must be at least 3 characters long.")
+      .required("Must include a name."),
+    last_name: Yup.string()
+      .min(3, "Must be at least 3 characters long.")
+      .required("Must include a surname."),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters long.")
+      .matches(
+        /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+        "Password must contain uppercase, lowercase and number."
+      )
+      .required("Must include a password."),
+    agreement: Yup.boolean().oneOf(
+      [true],
+      "You must accept the Terms and Conditions."
+    ),
+    age: Yup.number()
+      .min(18, "Must be at least 18 years old.")
+      .required("Must include an age."),
+    position: Yup.string()
+      .oneOf(
+        ["HR", "Sales", "Education"],
+        "Must select one of the three positions."
+      )
+      .required("Position is required."),
+    gender: Yup.string()
+      .oneOf(["Male", "Female"], "Please select your gender.")
+      .required("Gender is required."),
   });
 
   function handleChange(event) {
