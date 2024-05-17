@@ -4,6 +4,7 @@ import Users from "../pages/Users";
 import NotFound from "../pages/NotFound";
 import UserPage from "../pages/UserPage";
 import Login from "../pages/Login";
+import AddUser from "../pages/AddUser";
 
 function Main(props) {
   const { name, users, changeUser } = props;
@@ -22,6 +23,9 @@ function Main(props) {
         </Route>
         <Route path="/users/:id">
           <UserPage />
+        </Route>
+        <Route exact path="/user/add">
+          <AddUser />
         </Route>
         <Route path="*">
           <NotFound />
