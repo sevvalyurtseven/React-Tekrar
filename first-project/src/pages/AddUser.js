@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const initialFormData = {
   email: "", //email
   avatar: "", //url
-  name: "", //text
+  first_name: "", //text
   surname: "", //text
   age: "", //number
   password: "", //password
@@ -16,7 +16,7 @@ const initialFormData = {
 };
 
 function AddUser(props) {
-  const { changeUser } = props;
+  const { addNewUser } = props;
 
   //state olusturduk
   const [formData, setFormData] = useState(initialFormData);
@@ -37,7 +37,8 @@ function AddUser(props) {
     axios
       .post("https://reqres.in/api/users", formData)
       .then((response) => {
-        toast.success(response.data.name + " isimli kullanıcı eklendi");
+        addNewUser(response.data);
+        toast.success(response.data.first_name + " isimli kullanıcı eklendi");
       })
       .catch((error) => {
         toast.error(error.response.message);
@@ -53,14 +54,14 @@ function AddUser(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">
+        <label htmlFor="first_name">
           Name:
           <input
-            id="name"
-            name="name"
+            id="first_name"
+            name="first_name"
             type="text"
             placeholder="Adınızı giriniz"
-            value={formData.name} //controlled component
+            value={formData.first_name} //controlled component
             onChange={handleChange}
           />
         </label>
