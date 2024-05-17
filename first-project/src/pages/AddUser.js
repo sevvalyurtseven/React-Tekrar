@@ -210,7 +210,7 @@ function AddUser(props) {
         </label>
       </div>
 
-      <p>Which position are you working on?</p>
+      <h6>Which position are you working on?</h6>
       <div>
         <input
           id="hr"
