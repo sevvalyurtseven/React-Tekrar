@@ -22,6 +22,9 @@ function AddUser(props) {
   //state olusturduk
   const [formData, setFormData] = useState(initialFormData);
 
+  //3. adım valid state:
+  const [valid, setValid] = useState(false);
+
   //2. adım error state:
   const [errors, setErrors] = useState({
     email: "",
