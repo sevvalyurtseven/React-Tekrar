@@ -2,6 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 
 const initialFormData = {
+  name: "",
+  surname: "",
+  age: "",
   email: "",
   password: "",
   position: "",
@@ -43,6 +46,45 @@ function Login() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">
+          Name:
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Adınızı giriniz"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="surname">
+          Surname:
+          <input
+            id="surname"
+            name="surname"
+            type="text"
+            placeholder="Soyadınızı giriniz"
+            value={formData.surname}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="age">
+          Age:
+          <input
+            id="age"
+            name="age"
+            type="number"
+            placeholder="Yaşınızı giriniz"
+            value={formData.age}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
       <div>
         <label htmlFor="email">
           E-Mail:
@@ -108,7 +150,7 @@ function Login() {
           id="agreement"
           name="agreement"
           type="checkbox"
-          checked={formData.aggrement}
+          checked={formData.agreement}
           onChange={handleChange}
         />
         <label htmlFor="agreement">I accept the terms and conditions.</label>
