@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
+import "./AddUser.css";
 
 const initialFormData = {
   email: "", //email
@@ -52,10 +53,9 @@ function AddUser(props) {
       .min(3, "Must be at least 3 characters long.")
       .required("Must include a surname."),
     password: Yup.string()
-      .min(6, "Password must be at least 6 characters long.")
       .matches(
         /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-        "Password must contain uppercase, lowercase and number."
+        "Password must contain uppercase, lowercase, number, special character and at least 8 characters."
       )
       .required("Must include a password."),
     agreement: Yup.boolean().oneOf(
@@ -136,6 +136,7 @@ function AddUser(props) {
             value={formData.first_name} //controlled component
             onChange={handleChange}
           />
+          <p>{errors.first_name}</p>
         </label>
       </div>
       <div>
@@ -149,6 +150,7 @@ function AddUser(props) {
             value={formData.last_name}
             onChange={handleChange}
           />
+          <p>{errors.last_name}</p>
         </label>
       </div>
       <div>
@@ -162,6 +164,7 @@ function AddUser(props) {
             value={formData.email}
             onChange={handleChange}
           />
+          <p>{errors.email}</p>
         </label>
       </div>
       <div>
@@ -175,6 +178,7 @@ function AddUser(props) {
             value={formData.password}
             onChange={handleChange}
           />
+          <p>{errors.password}</p>
         </label>
       </div>
       <div>
@@ -188,6 +192,7 @@ function AddUser(props) {
             value={formData.age}
             onChange={handleChange}
           />
+          <p>{errors.age}</p>
         </label>
       </div>
       <div>
@@ -201,6 +206,7 @@ function AddUser(props) {
             value={formData.avatar}
             onChange={handleChange}
           />
+          <p>{errors.avatar}</p>
         </label>
       </div>
 
@@ -238,16 +244,7 @@ function AddUser(props) {
         />
         <label htmlFor="education">Education</label>
       </div>
-      <div>
-        <input
-          id="agreement"
-          name="agreement"
-          type="checkbox"
-          checked={formData.agreement}
-          onChange={handleChange}
-        />
-        <label htmlFor="agreement">I accept the terms and conditions.</label>
-      </div>
+      <p>{errors.position}</p>
       <div>
         <label htmlFor="gender">
           Gender:
@@ -260,9 +257,23 @@ function AddUser(props) {
               Female
             </option>
           </select>
+          <p>{errors.gender}</p>
         </label>
       </div>
-      <button type="submit">Giriş Yap</button>
+      <div>
+        <input
+          id="agreement"
+          name="agreement"
+          type="checkbox"
+          checked={formData.agreement}
+          onChange={handleChange}
+        />
+        <label htmlFor="agreement">I accept the terms and conditions.</label>
+        <p>{errors.agreement}</p>
+      </div>
+      <button disabled={!isValid} type="submit">
+        Giriş Yap
+      </button>
     </form>
   );
 }
