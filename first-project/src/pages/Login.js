@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const initialFormData = {
   name: "",
@@ -13,6 +14,7 @@ const initialFormData = {
 
 function Login(props) {
   const { changeUser } = props;
+  const history = useHistory();
   //state olusturduk
   const [formData, setFormData] = useState(initialFormData);
 
@@ -34,6 +36,7 @@ function Login(props) {
       .post("https://reqres.in/api/users", formData)
       .then((response) => {
         changeUser(response.data);
+        history.push("/users");
         console.log(response.data);
       })
       .catch((error) => {
