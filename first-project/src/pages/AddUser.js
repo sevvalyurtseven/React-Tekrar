@@ -67,12 +67,12 @@ function AddUser(props) {
       .required("Must include an age."),
     position: Yup.string()
       .oneOf(
-        ["HR", "Sales", "Education"],
+        ["hr", "sales", "education"],
         "Must select one of the three positions."
       )
       .required("Position is required."),
     gender: Yup.string()
-      .oneOf(["Male", "Female"], "Please select your gender.")
+      .oneOf(["male", "female"], "Please select your gender.")
       .required("Gender is required."),
   });
 
