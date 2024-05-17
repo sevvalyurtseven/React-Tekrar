@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,7 +23,7 @@ function AddUser(props) {
   const [formData, setFormData] = useState(initialFormData);
 
   //3. adım valid state:
-  const [valid, setValid] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
   //2. adım error state:
   const [errors, setErrors] = useState({
@@ -75,6 +75,14 @@ function AddUser(props) {
       .oneOf(["Male", "Female"], "Please select your gender.")
       .required("Gender is required."),
   });
+
+  //4. adım form valid mi kontrolu:
+
+  useEffect(() => {
+    formSchema.isValid(formData).then((valid) => {
+      setIsValid(valid);
+    });
+  }, [formData]);
 
   function handleChange(event) {
     const name = event.target.name;
