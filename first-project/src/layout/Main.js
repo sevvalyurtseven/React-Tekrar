@@ -6,12 +6,12 @@ import UserPage from "../pages/UserPage";
 import Login from "../pages/Login";
 
 function Main(props) {
-  const { name, users } = props;
+  const { name, users, changeUser } = props;
   return (
     <div className="main-container">
       <Switch>
         <Route exact path="/">
-          <Login />
+          <Login changeUser={changeUser} />
         </Route>
         <Route path="/counter">
           <Counter name={name} />

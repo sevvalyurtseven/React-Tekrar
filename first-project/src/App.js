@@ -24,12 +24,12 @@ function App() {
       });
   }, []); //didMount
 
-  function changeUser() {
-    const newUser = {
+  function changeUser(user) {
+    /* const newUser = {
       ...user,
       name: "Yeni User" + Math.floor(Math.random() * 100),
-    };
-    setLoggedUser(newUser);
+    }; */
+    setLoggedUser(user);
   }
 
   return (
@@ -41,7 +41,7 @@ function App() {
       />
       <div className="middle-area">
         <SideBar users={users} />
-        <Main name={loggedUser.name} users={users} />
+        <Main name={loggedUser.name} changeUser={changeUser} users={users} />
       </div>
       <Footer />
     </>

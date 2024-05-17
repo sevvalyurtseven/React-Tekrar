@@ -11,7 +11,8 @@ const initialFormData = {
   agreement: false,
 };
 
-function Login() {
+function Login(props) {
+  const { changeUser } = props;
   //state olusturduk
   const [formData, setFormData] = useState(initialFormData);
 
@@ -23,7 +24,7 @@ function Login() {
         : event.target.value;
     const newFormData = { ...formData, [name]: value };
     setFormData(newFormData);
-    console.log(newFormData);
+    //console.log(newFormData);
   }
 
   function handleSubmit(event) {
@@ -32,6 +33,7 @@ function Login() {
     axios
       .post("https://reqres.in/api/users", formData)
       .then((response) => {
+        changeUser(response.data);
         console.log(response.data);
       })
       .catch((error) => {
