@@ -91,6 +91,15 @@ function AddUser(props) {
         ? event.target.checked //true ise
         : event.target.value; //false ise
     const newFormData = { ...formData, [name]: value };
+
+    Yup.reach(formSchema, name)
+      .validate(value)
+      .then((valid) => {
+        setErrors({ ...errors, [name]: "" });
+      })
+      .catch((err) => {
+        setErrors({ ...errors, [name]: err.errors[0] });
+      });
     setFormData(newFormData);
   }
 
