@@ -9,6 +9,7 @@ function CounterController(props) {
         color="success"
         disabled={counter >= 10 ? true : false}
         onClick={arttir}
+        data-cy="increase"
       >
         Arttır
       </Button>
@@ -16,6 +17,7 @@ function CounterController(props) {
         color="danger"
         disabled={counter <= 0 ? true : false}
         onClick={azalt}
+        data-cy="decrease"
       >
         Azalt
       </Button>
